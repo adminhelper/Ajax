@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>XMLHttpRequest - javascript ajax 객체</title>
+<script>
+/* javascript에서 직접 요청하던지
+ * jQuery를 이용해서 ajax 요청을 하면
+ * XMLHttpRequest의 객체를 사용해서 통신을 한다 
+ */
+	function reqList(){
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(xhr.readyState == 4){
+				if(xhr.status == 200){
+					var data = xhr.responseText;
+					console.log(data);
+					document.getElementById("resp").innerHTML = data;
+				}
+			}
+		};
+		xhr.open("GET", "/Contact/list.jsp", true);
+		xhr.send();
+	}
+	
+	function delList(){
+		document.getElementById("resp").innerHTML = "";
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+

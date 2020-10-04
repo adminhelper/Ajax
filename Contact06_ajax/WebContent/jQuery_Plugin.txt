@@ -1,0 +1,11 @@
+1. waitme
+  https://www.jqueryscript.net/loading/jQuery-Plugin-For-Creating-Loading-Overlay-with-CSS3-Animations-waitMe.html
+  
+2. jpaginate
+  https://github.com/asirokas/jPaginate
+  https://www.dharmakitchen.com/html/plugin/jPaginate/
+
+  
+  
+  
+  https://startbootstrap.com/snippets/portfolio-four-column/

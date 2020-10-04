@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	/* 동일근원정책(SOP: Same Origin Policy)
+	 웹브라우저의 보안 정책
+	 ; 현재 브라우저와 동일한 Origin이 아닌 다른 Origin으로부터
+	 ajax를 이용해서 데이터를 로드하지 못한다.
+	 ; 브라우저가 Block해버린다
+	*/
+
+	$(document).ready(function(){
+		
+		console.log("localhost =>");
+		var url = "http://localhost:8080/Contact/list.jsp";
+		$.get(url, function(data){
+			console.log(data);
+		});
+		
+		console.log("127.0.0.1 =>");
+		url = "http://127.0.0.1:8080/Contact/list.jsp";
+		$.get(url, function(data){
+			console.log(data);
+		});
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

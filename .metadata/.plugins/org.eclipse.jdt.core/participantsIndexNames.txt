@@ -1,0 +1,17 @@
+INDEX VERSION 1.131
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2445750848.index
+\Contact04_ajax\src
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1658049028.index
+\Contact02_update_batch_jsp\src
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3108602289.index
+\KaKaoOpenAPI08\src
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\375519491.index
+\Contact05_ajax\src
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1253932315.index
+\Contact03_XMLHttpRequest\src
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3788450417.index
+\Contact01_jsp\src
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3013576601.index
+\CrossDomain07\src
+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1174119047.index
+\Contact06_ajax\src

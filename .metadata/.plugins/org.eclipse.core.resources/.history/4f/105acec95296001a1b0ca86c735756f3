@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	// 1번 요청 응답 후 2번째 요청 응답 후 3번째 요청 응답
+
+	function reqList(){
+
+		var jqxhr = $.get("/Contact/list_long.jsp", {pageno:1}, function(page1_data){
+			console.log("page 1!! : " + (new Date()).toLocaleTimeString());
+			console.log(page1_data);
+			return $.get("/Contact/list_long.jsp", {pageno:2});
+		});
+
+		$.get("/Contact/list_long.jsp", {pageno:2}, function(page2_data){
+			console.log("page 2!! : " + (new Date()).toLocaleTimeString());
+			console.log(page2_data);
+		});
+
+		$.get("/Contact/list_long.jsp", {pageno:3}, function(page3_data){
+			console.log("page 3!! : " + (new Date()).toLocaleTimeString());
+			console.log(page3_data);
+		});
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	// 버튼을 2번 눌러서 ajax가 2번 전송되는 것을 막기
+	$(document).ready(function(){
+		// 현재 전송중이니?
+		var currentRequests = {};
+		
+		$.ajaxPrefilter(function(options, originalOptions, jqXHR){
+			if(options.abortOnRetry){
+				// 현재 전송 url이 등록되어있다면
+				// (전송중이라면...)
+				if(currentRequests[options.url]){
+					jqXHR.abort();	// 전송을 취소시켜라
+				}
+				// 현재 url에 전송중이 아니라면 등록해라
+				else{
+					currentRequests[options.url] = jqXHR;
+				}
+			}
+		});
+	});
+	
+	function reqList(){
+
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

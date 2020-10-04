@@ -1,0 +1,16 @@
+<!-- 
+	입력이 가능한 Dialog 팝업창을 생성
+	1) <div></div>태그로 Dialog구성 요소 지정
+	2) 필요할 때 함수를 사용해서 띄워준다.
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

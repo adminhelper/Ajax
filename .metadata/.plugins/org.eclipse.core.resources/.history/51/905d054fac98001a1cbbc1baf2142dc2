@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+
+	$(document).ready(function(){
+		$(document).ajaxStop(function(){
+			console.log("AJAX STOP!!");
+		});
+		
+		// 모든 ajax에 timeout 1.9 sec가 적용이 된다
+		// 디폴트 설정을 적용하고 싶을 때
+		$.ajaxSetup({
+			timeout : 1900,
+			global : false,		// 전역 이벤트 발생 안시키기
+			error : function(jqxhr, status, error){
+				console.log("ERROR : " + error);
+			}
+		});
+	});
+	
+	function reqList(){
+		$.get("/Contact/list_long.jsp", function(data){
+			console.log(data);
+		});
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	/* 전역 Ajax 이벤트
+	   ; 1개 단위의 ajax요청이 아니라
+	     현재 페이지 내에서 ajax요청 이벤트이다.
+	   1) ajaxStart : ajax요청이 없다가 새로 발생할 때
+	   2) ajaxSend  : ajax요청이 발생할 때 마다
+	   3) ajaxSuccess : ajax요청이 성공했을 때
+	   4) ajaxError	: ajax요청이 오류가 발생했을 때
+	   5) ajaxComplete : 성공/실패 관계 없이 ajax요청이 완료시
+	   6) ajaxStop  : 처리중인 ajax요청이 모두 완료되었을 때
+	*/
+	$(document).ready(function(){
+		$(document).ajaxStart(function(){
+			console.log("AJAX START!!");
+		}).ajaxStop(function(){
+			console.log("AJAX STOP!!");
+		}).ajaxSend(function(e, xhr, options){
+			console.log("AJAX SEND : " + options.url);
+		}).ajaxSuccess(function(e, xhr, options, data){
+			console.log("AJAX SUCCESS : " + options.url);
+			console.log(data);
+		}).ajaxComplete(function(e, xhr, options){
+			console.log("AJAX COMPLETE : " + options.url);
+		});
+	});
+	
+	function reqList(){
+		
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	// 2개의 ajax요청을 전송하고 2개 모두 응답받으면 처리
+	
+	function reqList(){
+		var xhr1 = $.get("/Contact/list_long.jsp", {pageno:1});
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

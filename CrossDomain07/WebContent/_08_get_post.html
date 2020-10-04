@@ -1,0 +1,64 @@
+<!-- 
+	$.ajax()메서드를 대신해서 사용할 수 있는 단축 메서드
+	1) $.get()			: GET방식 요청
+	2) $.post()			: POST방식 요청
+	3) $.getJSON()		: GET방식으로 JSON형식의 인코딩
+						 데이터를 로딩한다.
+						 JSONP기법에도 사용한다.
+	4) $.getScript()	: GET 방식으로 서버로부터
+						 js파일을 로딩한 후 실행시킨다.
+	5) load()			: 서버로부터 응답받은 데이터를
+						 HTML요소의 컨텐츠로 대체한다.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	function reqList(){
+		$.get("/Contact/list.jsp", function(data){
+			console.log(data);
+		});
+		
+		var param = {};
+		param.name = "트와이스";
+		param.tel = "8282";
+		param.address = "충남";
+		$.post("/Contact/add.jsp", param, function(data){
+			console.log(data);
+		});
+		
+		$.get({
+			url : "/Contact/list_long.jsp",
+			data : {pageno:2, pagesize:5},
+			timeout : 1900,
+			success : function(data){
+				console.log(data);
+			},
+			error : function(xhr, status, error){
+				console.log(status + ", " + error);
+			}
+		});
+	}
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

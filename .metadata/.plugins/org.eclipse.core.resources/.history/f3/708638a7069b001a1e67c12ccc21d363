@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- 부트스트랩 반응형 웹 지원 -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kakao Image Search Viewer</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/ekko-lightbox.css">
+<style>
+	body{
+		padding-top:70px;
+	}
+	.portfolio-item{
+		margin-bottom:25px;
+	}
+	footer{
+		margin:50px 0;
+	}
+</style>
+<!-- ekkolightbox가 3.x를 지원하지 않아서 2.x 버전을 사용함 -->
+<script src="http://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/ekko-lightbox.min.js"></script>
+<script src="https://www.jsviews.com/download/jsrender.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		var key = "";	// Kakak 내 애플리케이션 REST API 키
+		var param = {
+			pageno:1, size:20, sort:"accuracy"	
+		}
+		var searchImages = function(){
+			$.ajax({
+				url : "https://dapi.kakao.com/v2.search/image",
+				headers : {'Authorization' : 'KakaoAK ' + key},
+				type : "GET",
+				data : param,
+				success : function(result){
+					console.log(result);
+					// jsRender플러그인 사용
+					// ViewTemplate + json객체 = 특정 div영역에 출력
+					
+				}
+			});
+		}
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+

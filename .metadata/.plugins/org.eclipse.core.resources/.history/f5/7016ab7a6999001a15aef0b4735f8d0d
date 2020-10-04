@@ -1,0 +1,16 @@
+<!-- 
+	jsRender 플러그인
+	View Template + Data(객체, 배열) = UI(HTML)
+	화면과 데이터를 분리해서 코딩하고 나중에 합한다
+	가독성이 좋고 사용이 편리하다
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

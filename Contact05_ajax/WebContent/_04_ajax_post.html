@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery의 ajax메서드 사용</title>
+<script type="text/javascript"
+		src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	function reqList(){
+		var param = {};
+		param.name = "홍길동";
+		param.tel = "010-7777-8888";
+		param.address = "율도국";
+		
+		$.ajax({
+			url : "/Contact/add.jsp",
+			type : "POST",
+			data : param,
+			success : function(data){
+				console.log(data);
+				$("#resp").html(JSON.stringify(data));
+			} 
+		});
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+

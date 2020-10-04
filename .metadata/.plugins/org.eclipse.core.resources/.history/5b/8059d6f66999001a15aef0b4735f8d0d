@@ -1,0 +1,43 @@
+<!-- 
+	jsRender 플러그인
+	View Template + Data(객체, 배열) = UI(HTML)
+	화면과 데이터를 분리해서 코딩하고 나중에 합한다.
+	가독성이 좋고 사용이 편리하다.
+	
+	기존의 HTML문자열을 이어 붙여서 UI를 생성하는 방법은
+	수정이 어렵고 가독성이 좋지 않다.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	table{
+		width:400px;
+		border:1px solid black;
+		border-collapse:collapse;
+	}
+	td, th{
+		border:1px solid black;
+		text-align:center;
+	}
+	table > thead > tr{
+		color:yellow;
+		background-color:purple;
+	}
+</style>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

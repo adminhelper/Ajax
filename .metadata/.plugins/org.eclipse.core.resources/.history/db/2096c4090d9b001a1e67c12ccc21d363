@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script type="text/javascript" src="js/kakao.js"></script>
+<script>
+    var key = "2fe40d2bad14332eca74915ed27f3678";		// REST API
+function searchISBN(isbn){
+    event.preventDefault();
+    if(isbn !== undefined && isbn !== ""){
+        $.ajax({
+          url: "https://dapi.kakao.com/v2/search/image",
+          headers: {'Authorization': 'KakaoAK '+ key},
+          type : "get",
+          data:{
+              query: isbn,
+          },
+          success : function(result){
+              console.log(result);
+              /*
+              $("#resp").html(JSON.stringify(result));
+              let data = result.documents[0];
+              $("#title").val(data.title);
+              $('#author').val(data.authors);
+              $('#pub').val(data.publisher);
+              $('#price').val(data.price);
+              $('#info').val(data.contents+"...");
+              let date = data.datetime.split('T')[0];
+              $('#date').val(date);
+              $('#translator').val(data.translators);
+              */
+          }
+      });
+    }
+}
+
+	
+	function delList(){
+		$("#resp").html("");	
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="searchISBN('java');">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>	
+</body>
+</html>

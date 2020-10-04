@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	var key = "81d1554f77635ed0ee0dc4d11ef023ea";		// 내 애플리케이션의 REST API 키를 써줘야 함
+	function searchBook(bookname){
+		if(bookname !== undefined || bookname !== ""){
+			$.ajax({
+				url : "https://dapi.kakao.com/v3/search/book",
+				headers : {'Authorization' : 'KakaoAK ' + key },
+				type : "GET",
+				data:{
+					query : bookname
+				},
+				success : function(result){
+					console.log(result);
+				}
+			});
+		}
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="searchBook('java');">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

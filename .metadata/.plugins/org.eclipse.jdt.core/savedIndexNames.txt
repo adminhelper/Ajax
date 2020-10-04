@@ -1,0 +1,20 @@
+INDEX VERSION 1.131+C:\Lecture\Ajax\lecture\.metadata\.plugins\org.eclipse.jdt.core
+688480681.index
+1334140737.index
+1565284671.index
+2518530227.index
+1367773786.index
+3494651090.index
+2191457006.index
+2930401599.index
+3865448931.index
+4262403902.index
+1822289824.index
+3157622993.index
+978961881.index
+2692881713.index
+1457018492.index
+2642707929.index
+2031630650.index
+336088942.index
+3898994709.index

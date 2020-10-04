@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+/*
+ * ajax 통신이 일어나고 진행 종료 시점마다 호출되는 CALLBACK 함수
+ */*/
+	function reqList(){
+		$.ajax({
+			url : "/Contact/list.jsp",
+			type : "GET",
+			data : {pageno:5, pagesize:5},
+			beforeSend : function(xhr, settings){
+				console.log("Before Send");
+			},
+			success : function(data){
+				console.log("Success : " + data);
+			},
+			error : function(xhr, status, error){
+				console.log("Error : " + status + ", " + error);
+			},
+			complete : function(xhr, status){
+				console.log("Complete");
+			}
+		});
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+

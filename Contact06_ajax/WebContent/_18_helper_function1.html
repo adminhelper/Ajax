@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+/* Helper 함수
+ * 1) $(form).serialze()
+ *    ; 인코딩된 폼데이터로 생성(application/x-www-form-urlencoded형식)
+ * 2) $(form).serializeArray()
+ *    ; 객체 배열 생성
+ * 3) $.param()
+ *    ; 객체/객체 배열을 인자로 받으면 인코딩된 폼데이터로 생성
+ 
+ *   javascript 객체 -> json 문자열 
+     JSON.stringify(obj);
+ 
+     json 문자열 -> javascript 객체
+     JSON.parse(str);
+ */
+	$(document).ready(function(){
+		$("#save").click(function(){
+			//1) application/x-www-form-urlencoded형식으로 만드는 코드
+			var param = $("#f1").serialize();
+			console.log(param);
+			
+			//2) json문자열로 보내고 싶다
+			var paramJson = $("#f1").serializeArray();
+ 			console.log(paramJson);
+ 			console.log(JSON.stringify(paramJson));
+ 			
+ 			//3) 객체/객체배열 -> 인코딩 폼데이터
+ 			console.log($.param(paramJson));
+		});
+	});
+</script>
+</head>
+<body>
+	<form id="f1">
+		이름 : <input type="text" id="name" name="name"/><br>
+		성별 : 
+		  남<input type="radio" class="gender" name="gender"
+		  			value="M" checked/>
+		  여<input type="radio" class="gender" name="gender"
+		  			value="F"/> <br>
+		연령대 : <select id="age" name="age">
+			<option value="" selected>--연령대를 선택하세요</option>
+			<option value="10">~19</option>
+			<option value="20">20~29</option>
+			<option value="30">30~39</option>
+			<option value="40">40~49</option>
+			<option value="50">50~59</option>
+			<option value="60">60~</option>
+		</select>
+	</form>
+	<button id="save">저장</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="waitme/waitMe.css"/>
+<script src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script src="waitme/waitMe.js"></script>
+<script>
+	var ajaxLoading = function(isLoading){
+		if(isLoading == false){
+			$("body").waitMe("hide");
+		}else{
+			$("body").waitMe({
+				effect : "ios",
+				text : "처리중입니다.",
+				bg : 'rgba(255,255,255,0.7)',
+				color : '#000',
+				source : 'waitme/img.svg'
+			});
+		}
+	}
+</script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.js"></script>
+<script>
+	// 버튼을 2번 눌러서 ajax가 2번 전송되는 것을 막기
+	$(document).ready(function(){
+		// 현재 전송중이니?
+		var currentRequests = {};
+		
+		// ajax통신 직전에 처리하는 일
+		$.ajaxPrefilter(function(options, originalOptions, jqXHR){
+			if(options.abortOnRetry){
+				// 현재 전송 url이 등록되어있다면
+				// (전송중이라면...)
+				if(currentRequests[options.url]){
+					jqXHR.abort();	// 전송을 취소시켜라
+				}
+				// 현재 url에 전송중이 아니라면 등록해라
+				else{
+					currentRequests[options.url] = jqXHR;
+				}
+			}
+		});
+		
+		$(document).ajaxComplete(function(e, jqxhr, options){
+			if(options.abortOnRetry){
+				// 전송 완료시 현재 등록한 것을 삭제한다
+				// (전송중인 것이 없다)
+				delete currentRequests[options.url];
+			}
+		});
+	});
+	
+	var count = 0;
+	function reqList(){
+		$.get({
+			url : "/Contact/list_long.jsp",
+			abortOnRetry : true,
+			beforeSend : function(xhr, settings){
+				count = count + 1;
+				console.log("send " + count + " Request");
+			},
+			success : function(data){
+				console.log("success " + count + " Request !!");
+				console.log(data);
+			},
+			error : function(xhr, status, error){
+				console.log("error " + count + "Request");
+			}
+		});
+	}
+	
+	function delList(){
+		$("#resp").html("");
+	}
+</script>
+</head>
+<body>
+	<button type="button" onclick="reqList();">요청</button>
+	<button type="button" onclick="delList();">삭제</button>
+	<p id="resp"></p>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
